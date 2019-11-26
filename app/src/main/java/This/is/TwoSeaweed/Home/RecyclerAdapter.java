@@ -8,16 +8,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import This.is.TwoSeaweed.R;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
     ArrayList<Item> items;
-
+    String curTime;
+    public static int selected_day;
     public RecyclerAdapter(ArrayList<Item> items) {
         this.items = items;
+        getDate();
+        selected_day = Integer.parseInt(curTime.substring(6,8));
+
     }
 
     @NonNull
@@ -27,25 +33,38 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         ViewHolder viewholder=  new ViewHolder(v);
         return viewholder;
     }
-
+    void setday(int a){
+        selected_day=a;
+    }
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.cur_day.setText(items.get(position).getCurday());
         holder.day.setText(items.get(position).getDay());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //뷰 클릭되었을 때
-            }
-        });
+        if(selected_day-1==position) {
+            holder.itemView.setBackgroundColor(0xffffdddd);
+        }else{
+            holder.itemView.setBackgroundColor(0xffffffff);
+        }
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View view) {
+////                selected_day = Integer.parseInt(holder.day.getText().toString());
+////                RecyclerAdapter.this.notifyDataSetChanged();
+////                //뷰 클릭되었을 때
+////            }
+////        });
     }
-
+    private void getDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddE");
+        Date date = new Date();
+        curTime = sdf.format(date);
+    }
     @Override
     public int getItemCount() {
         return items.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView cur_day;
         TextView day;
         ViewHolder(@NonNull View itemView) {
