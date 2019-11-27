@@ -4,17 +4,25 @@ public class contents {
     String year;
     String month;
     String day;
-    String curday;
     String content;
     int state;
+    int key;
 
-    public contents(String year, String month, String day, String curday, String content, int state) {
+    public contents(String year, String month, String day, String content, int state, int key) {
         this.year = year;
         this.month = month;
         this.day = day;
-        this.curday = curday;
         this.content = content;
         this.state = state;
+        this.key = key;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 
     public String getYear() {
@@ -39,14 +47,6 @@ public class contents {
 
     public void setDay(String day) {
         this.day = day;
-    }
-
-    public String getCurday() {
-        return curday;
-    }
-
-    public void setCurday(String curday) {
-        this.curday = curday;
     }
 
     public String getContent() {

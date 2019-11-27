@@ -30,8 +30,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_item,parent,false);
-        ViewHolder viewholder=  new ViewHolder(v);
-        return viewholder;
+        return new ViewHolder(v);
     }
     void setday(int a){
         selected_day=a;

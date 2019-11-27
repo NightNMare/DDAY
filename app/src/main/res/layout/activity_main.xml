@@ -56,13 +56,35 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
-        <EditText
+            android:id="@+id/home_content_rv"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/home_layout"
             android:layout_width="match_parent"
-            android:id="@+id/home_edt"
-            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/home_edt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/home_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="확인" />
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
             android:visibility="gone"
-            android:layout_marginRight="10dp"
+            android:text="확인"
+            android:id="@+id/home_btn_done"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -71,10 +93,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:backgroundTint="#838383"
-        android:background="#00000000"
-        app:borderWidth="0dp"
         android:layout_margin="25dp"
-        app:fabSize="normal"
-        android:src="@drawable/ic_add_black_24dp" />
+        android:background="#00000000"
+        android:backgroundTint="#838383"
+        android:src="@drawable/ic_add_black_24dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal" />
 </FrameLayout>

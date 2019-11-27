@@ -11,11 +11,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String tableSql = "Create table tb_data ("+"_id integer primary key autoincrement," +
+        String tableSql = "Create table tb_data("+"_id integer primary key autoincrement," +
                 " year not null," +
                 " month not null," +
                 " day not null," +
-                " curday not null," +
                 " content not null," +
                 " state not null)";
         db.execSQL(tableSql);
