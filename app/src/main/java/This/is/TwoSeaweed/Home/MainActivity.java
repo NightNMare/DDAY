@@ -10,6 +10,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import This.is.TwoSeaweed.R;
+import This.is.TwoSeaweed.Setting.SettingActivity;
 
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
@@ -81,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {///////////////////////////////////////////////////////
                 if (item.getItemId() == R.id.menu_option) {
+                    Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                    startActivity(intent);
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         datas = new ArrayList<>();
-        dbadapter = new DBRecyclerAdapter(datas);
+        dbadapter = new DBRecyclerAdapter(datas,this);
         RV_content.setLayoutManager(new LinearLayoutManager(this));
         RV_content.setAdapter(dbadapter);
 
