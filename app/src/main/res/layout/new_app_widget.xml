@@ -18,6 +18,16 @@
         android:text="refresh"
         android:onClick="onClick"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="오늘 할 일"
+        android:textStyle="bold"
+        android:textSize="11sp"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:paddingTop="20dp"
