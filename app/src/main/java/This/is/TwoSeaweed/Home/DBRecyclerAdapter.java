@@ -73,6 +73,8 @@ public class DBRecyclerAdapter extends RecyclerView.Adapter<DBRecyclerAdapter.Vi
                 contents data = datas.get(position);
                 db.execSQL("delete from tb_data where year='" + data.getYear() + "' AND month='" + data.getMonth() + "' AND day='" + data.getDay() + "' AND _id=" + data.getKey() + "");
                 datas.remove(position);
+                holder.del.setVisibility(View.GONE);
+                a=0;
                 //year, month, day, content, state
                 DBRecyclerAdapter.this.notifyDataSetChanged();
                 db.close();
